@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mecklenburg County Park and Greenway Explorer</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+
+</head>
+
+<body>
+    <!-- Header with Logo -->
+    <div class="header-container">
+    <img src="logo.png" alt="Logo" id="logo">
+    <h1>Mecklenburg County Park and Greenway Explorer</h1>
+    </div>
+
+    <!-- Description Section -->
+    <div class="description-container">
+        <p>Welcome to the Mecklenburg County Park and Greenway Explorer!
+        This app helps you explore various parks and greenway trails in Mecklenburg County, NC.
+        You can find detailed information about trail entrances, mile markers, and trail routes directly on the map.
+        Start exploring today!</p>
+    </div>
+
+    <!-- Filters Section -->
+    <div class="filters-container">
+        <label for="dataLayerSelect">Choose Data Layer:</label>
+        <select id="dataLayerSelect">
+            <option value="entrances">Entrances</option>
+            <option value="milemarkers">Mile Markers</option>
+            <option value="trails">Trails</option>
+        </select>
+    </div>
+
+    <!-- Search Bar -->
+    <div class="search-container">
+        <input type="text" id="searchBar" placeholder="Search by park or trail name..." />
+    </div>
+
+    <!-- Map Container -->
+    <div id="map"></div>
+
+    <div id="entrances-list" style="display:none"></div>
+    <div id="milemarkers-list" style="display:none"></div>
+    <div id="trails-list" style="display:none"></div>
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-ajax/dist/leaflet.ajax.min.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
