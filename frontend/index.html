@@ -25,21 +25,98 @@
         Start exploring today!</p>
     </div>
 
-    <!-- Filters and Search Bar Section -->
+    <!-- Filters and Search Bar Container -->
     <div class="filters-search-container">
-        <div class="filters-container">
-            <label for="dataLayerSelect">Choose Data Layer:</label>
-            <select id="dataLayerSelect">
-                <option value="all">All</option>
-                <option value="entrances">Entrances</option>
-                <option value="milemarkers">Mile Markers</option>
-                <option value="trails">Trails</option>
-            </select>
+
+        <!-- Search Bar -->
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search name..." />
         </div>
 
-        <div class="search-container">
-            <input type="text" id="searchBar" placeholder="Search by park or trail name..." />
-        </div>
+        <!-- General Filters -->
+        <fieldset class="filter-group">
+            <legend>General</legend>
+            <div class="filters-container">
+                <label for="dataLayerSelect">Choose Data Layer:</label>
+                <select id="dataLayerSelect">
+                    <option value="entrances">Entrances</option>
+                    <option value="milemarkers">Mile Markers</option>
+                    <option value="trails">Trails</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <!-- Trail Filters -->
+        <fieldset id="trailFilters" class="filter-group">
+            <legend>Trail Filters</legend>
+            <div class="filters-container">
+                <label for="trailSurfaceSelect">Trail Surface:</label>
+                <select id="trailSurfaceSelect">
+                    <option value="">Any</option>
+                </select>
+            </div>
+
+            <div class="filters-container">
+                <label for="trailTypeSelect">Trail Type:</label>
+                <select id="trailTypeSelect">
+                    <option value="">Any</option>
+                </select>
+            </div>
+
+            <div class="filters-container">
+                <label for="trailOwnerSelect">Trail Owner:</label>
+                <select id="trailOwnerSelect">
+                    <option value="">Any</option>
+                </select>
+            </div>
+
+            <div class="filters-container">
+                <label for="distanceMin">Min Distance (miles):</label>
+                <input type="number" id="distanceMin" min="0" step="0.1">
+            </div>
+
+            <div class="filters-container">
+                <label for="distanceMax">Max Distance (miles):</label>
+                <input type="number" id="distanceMax" min="0" step="0.1">
+            </div>
+        </fieldset>
+
+        <!-- Mile Marker Filters -->
+        <fieldset id="mileMarkerFilters" class="filter-group">
+            <legend>Mile Marker Filters</legend>
+            <div class="filters-container">
+                <label for="installedSelect">Installed:</label>
+                <select id="installedSelect">
+                    <option value="">Any</option>
+                </select>
+            </div>
+        </fieldset>
+
+        <!-- Entrance Filters -->
+        <fieldset id="entranceFilters" class="filter-group">
+            <legend>Entrance Filters</legend>
+            <div class="filters-container">
+                <label for="accessTypeSelect">Access Type:</label>
+                <select id="accessTypeSelect">
+                    <option value="">Any</option>
+                </select>
+            </div>
+
+            <div class="filters-container">
+                <label for="entranceTypeSelect">Entrance Type:</label>
+                <select id="entranceTypeSelect">
+                    <option value="">Any</option>
+                </select>
+            </div>
+
+            <div class="filters-container">
+                <label for="regionSelect">Region:</label>
+                <select id="regionSelect">
+                    <option value="">Any</option>
+                </select>
+            </div>
+        </fieldset>
+
     </div>
 
     <!-- Map Container -->

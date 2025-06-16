@@ -6,19 +6,24 @@ body {
     background-color: #f4f7f6;
     height: 100vh;
     display: flex;
-    flex-direction: column; /* Stack header and map */
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 /* Header Container */
 .header-container {
     display: flex;
-    align-items: center;  /* Align logo and text vertically */
-    justify-content: flex-start; /* Align items to the left */
+    align-items: center;
+    justify-content: flex-start;
     padding: 20px;
-    width: 100%;  /* Ensure header takes full width */
-    background-color: #fff;  /* Optional: background color for header */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: shadow */
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    height: 80px;
 }
 
 /* Header Title */
@@ -27,38 +32,44 @@ h1 {
     color: #005035;
     margin: 0;
     font-weight: 600;
-    margin-left: 15px; /* Adds space between the logo and title */
+    margin-left: 15px;
 }
 
 /* Positioning the logo */
 #logo {
-    max-width: 80px;  /* Adjust this value to make the logo smaller */
-    height: auto;      /* Maintain aspect ratio */
+    max-width: 80px;
+    height: auto;
 }
 
-/* Style for Filters and Search Container */
+/* Style for Filters and Search Container (Sidebar) */
 .filters-search-container {
     display: flex;
-    justify-content: center;  /* Center the filter and search bar in the container */
-    align-items: center;  /* Align items vertically in the center */
-    gap: 20px;  /* Space between the two elements */
-    margin-top: 20px; /* Space between the filters-search-container and the rest */
-    width: 100%;
-    max-width: 800px;  /* Limit the maximum width of the container */
-    padding: 0 20px;  /* Add some horizontal padding */
+    flex-direction: column;
+    gap: 20px;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 120px;
+    left: 0;
+    width: 220px;
+    height: calc(100vh - 140px);
+    overflow-y: auto; 
 }
 
-/* Style for Filters */
+/* Filters Container */
 .filters-container {
     display: flex;
-    align-items: center;
-    gap: 10px;  /* Add space between the label and dropdown */
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
 }
 
 /* Style for Search Bar */
 .search-container {
     display: flex;
     align-items: center;
+    gap: 10px;
 }
 
 /* Style for the search input */
@@ -68,46 +79,49 @@ h1 {
     border-radius: 5px;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    width: 250px;  /* Control the width of the search bar */
+    width: 100%;
 }
 
 /* Style for the select dropdown */
-#dataLayerSelect {
+select {
     padding: 8px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ddd;
-    width: 200px;  /* Control the width of the dropdown */
+    width: 100%;
+}
+
+/* Grouping container for filters */
+.filter-group {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    background-color: #f9f9f9;
+}
+
+/* Legend styling (group titles) */
+.filter-group legend {
+    font-weight: bold;
+    font-size: 16px;
+    padding: 0 8px;
+    color: #333;
+    transition: all 0.3s ease;
 }
 
 /* Map container */
 #map {
-    width: 100%;        /* Ensure map takes full width */
-    height: 100%;       /* Make sure the map takes available space */
-    flex-grow: 1;       /* Allow the map to grow and take all remaining space */
+    margin-top: 53px;
+    margin-left: 262px; 
+    width: calc(100% - 262px);
+    height: calc(100vh - 80px);
+    background-color: #eaeaea;
+    box-sizing: border-box;
+    overflow: hidden;
 }
 
-/* Optional: Logo hover effect */
-#logo:hover {
-    opacity: 0.8;
-    cursor: pointer;
-}
-
-/* Basic styling for the map */
-#map {
-    height: 500px; /* Set a fixed height for the map */
-    width: 100%;   /* Make the map full width */
-}
-
-/* Basic styling for the cards */
-.info-card {
-    padding: 10px;
-    border: 1px solid #ddd;
-    background: white;
-    border-radius: 5px;
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.info-card h4 {
+/* Ensure the map container fits well within the page */
+html, body {
+    height: 100%;
     margin: 0;
 }
