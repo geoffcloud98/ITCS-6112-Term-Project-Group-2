@@ -36,52 +36,48 @@ h1 {
     height: auto;      /* Maintain aspect ratio */
 }
 
-/* Filters Container */
-.filters-container {
-    width: 100%;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-top: 20px;
-    text-align: center;
-}
-
-.filters-container h2 {
-    font-size: 24px;
-    color: #333;
-}
-
-.filter-group {
+/* Style for Filters and Search Container */
+.filters-search-container {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    margin-top: 10px;
+    justify-content: center;  /* Center the filter and search bar in the container */
+    align-items: center;  /* Align items vertically in the center */
+    gap: 20px;  /* Space between the two elements */
+    margin-top: 20px; /* Space between the filters-search-container and the rest */
+    width: 100%;
+    max-width: 800px;  /* Limit the maximum width of the container */
+    padding: 0 20px;  /* Add some horizontal padding */
 }
 
-label {
-    font-size: 16px;
-    color: #555;
+/* Style for Filters */
+.filters-container {
+    display: flex;
+    align-items: center;
+    gap: 10px;  /* Add space between the label and dropdown */
 }
 
-input[type="checkbox"] {
-    margin-right: 8px;
-}
-
-/* Search Bar */
+/* Style for Search Bar */
 .search-container {
-    margin-top: 20px;
-    padding: 10px;
-    text-align: center;
+    display: flex;
+    align-items: center;
 }
 
+/* Style for the search input */
 #searchBar {
-    width: 300px;
     padding: 8px;
     font-size: 16px;
     border-radius: 5px;
     border: 1px solid #ddd;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 250px;  /* Control the width of the search bar */
+}
+
+/* Style for the select dropdown */
+#dataLayerSelect {
+    padding: 8px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    width: 200px;  /* Control the width of the dropdown */
 }
 
 /* Map container */
@@ -96,6 +92,7 @@ input[type="checkbox"] {
     opacity: 0.8;
     cursor: pointer;
 }
+
 /* Basic styling for the map */
 #map {
     height: 500px; /* Set a fixed height for the map */

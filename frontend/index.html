@@ -25,19 +25,21 @@
         Start exploring today!</p>
     </div>
 
-    <!-- Filters Section -->
-    <div class="filters-container">
-        <label for="dataLayerSelect">Choose Data Layer:</label>
-        <select id="dataLayerSelect">
-            <option value="entrances">Entrances</option>
-            <option value="milemarkers">Mile Markers</option>
-            <option value="trails">Trails</option>
-        </select>
-    </div>
+    <!-- Filters and Search Bar Section -->
+    <div class="filters-search-container">
+        <div class="filters-container">
+            <label for="dataLayerSelect">Choose Data Layer:</label>
+            <select id="dataLayerSelect">
+                <option value="all">All</option>
+                <option value="entrances">Entrances</option>
+                <option value="milemarkers">Mile Markers</option>
+                <option value="trails">Trails</option>
+            </select>
+        </div>
 
-    <!-- Search Bar -->
-    <div class="search-container">
-        <input type="text" id="searchBar" placeholder="Search by park or trail name..." />
+        <div class="search-container">
+            <input type="text" id="searchBar" placeholder="Search by park or trail name..." />
+        </div>
     </div>
 
     <!-- Map Container -->
