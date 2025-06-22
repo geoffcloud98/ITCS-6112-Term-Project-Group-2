@@ -46,6 +46,24 @@
             </div>
         </fieldset>
 
+        <!-- Global Location Filter -->
+        <fieldset class="filter-group">
+            <legend>Nearby Search</legend>
+            <div class="filters-container">
+                <label for="locationInput">Enter Address:</label>
+                <input type="text" id="locationInput" placeholder="9201 University City Blvd">
+            </div>
+
+            <div class="filters-container">
+                <label for="radiusInput">Radius (miles):</label>
+                <input type="number" id="radiusInput" value="2" min="0.1" step="0.1">
+            </div>
+
+            <div class="filters-container">
+                <button id="locationSearchBtn">Find Nearby Features</button>
+            </div>
+        </fieldset>
+
         <!-- Trail Filters -->
         <fieldset id="trailFilters" class="filter-group">
             <legend>Trail Filters</legend>

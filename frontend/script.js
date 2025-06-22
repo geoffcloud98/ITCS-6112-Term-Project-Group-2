@@ -301,3 +301,90 @@ updateFilterVisibility();
 
 // Attach change event listener
 dataLayerSelect.addEventListener('change', updateFilterVisibility);
+
+let searchCircle = null; 
+
+document.getElementById('locationSearchBtn').addEventListener('click', async () => {
+    const locationInput = document.getElementById('locationInput').value;
+    const radiusMiles = parseFloat(document.getElementById('radiusInput').value) || 2;
+    const selectedLayer = dataLayerSelect.value;
+
+    if (!locationInput) {
+        alert("Please enter a location.");
+        return;
+    }
+
+    try {
+        const coords = await geocodeAddress(locationInput);
+        const radiusMeters = radiusMiles * 1609.34;
+        const searchPoint = L.latLng(coords.lat, coords.lon);
+
+        // Remove old circle if it exists
+        if (searchCircle) {
+            map.removeLayer(searchCircle);
+        }
+
+        // Add new circle
+        searchCircle = L.circle(searchPoint, {
+            radius: radiusMeters,
+            color: 'blue',
+            fillColor: '#3388ff',
+            fillOpacity: 0.2
+        }).addTo(map);
+
+        map.setView(searchPoint, 13);
+
+        // Clear and add markers inside radius (same as before, but clear layers first)
+        if (selectedLayer === 'entrances') {
+            entrancesLayer.entrancesGroup.clearLayers();
+            entrancesMarkers.forEach(entry => {
+                const distance = searchPoint.distanceTo(entry.marker.getLatLng());
+                if (distance <= radiusMeters) {
+                    entrancesLayer.entrancesGroup.addLayer(entry.marker);
+                }
+            });
+        } else if (selectedLayer === 'milemarkers') {
+            entrancesLayer.mileMarkersGroup.clearLayers();
+            mileMarkersMarkers.forEach(entry => {
+                const distance = searchPoint.distanceTo(entry.marker.getLatLng());
+                if (distance <= radiusMeters) {
+                    entrancesLayer.mileMarkersGroup.addLayer(entry.marker);
+                }
+            });
+        } else if (selectedLayer === 'trails') {
+            entrancesLayer.trailsGroup.clearLayers();
+            trailsMarkers.forEach(entry => {
+                const bounds = entry.marker.getBounds ? entry.marker.getBounds() : null;
+                const center = bounds ? bounds.getCenter() : null;
+                if (center && searchPoint.distanceTo(center) <= radiusMeters) {
+                    entrancesLayer.trailsGroup.addLayer(entry.marker);
+                }
+            });
+        }
+
+    } catch (err) {
+        alert("Could not find that location. Please check the address and try again.");
+        console.error(err);
+    }
+});
+
+// Use Nominatim (OpenStreetMap) to geocode an address
+async function geocodeAddress(address) {
+    const encoded = encodeURIComponent(address);
+    const url = `https://nominatim.openstreetmap.org/search?format=json&q=${encoded}`;
+
+    const response = await fetch(url, {
+        headers: {
+            'Accept-Language': 'en',
+            'User-Agent': 'Mecklenburg-Greenway-Explorer/1.0 (your@email.com)'
+        }
+    });
+
+    const results = await response.json();
+    if (!results.length) throw new Error("Location not found");
+
+    return {
+        lat: parseFloat(results[0].lat),
+        lon: parseFloat(results[0].lon)
+    };
+}
