@@ -9,7 +9,6 @@ This project is a web-based interactive mapping application built to visualize a
 
 The backend is built with Node.js and Express.js, and integrates OpenStreetMap (via Nominatim API) and ArcGIS REST services to provide geocoding and real-time data. This tool helps residents, outdoor enthusiasts, and tourists navigate the county’s trail, park, and greenway networks with ease.
 
-<h2>System Decomposition</h2>
 
 <h2>System Decomposition</h2>
 
