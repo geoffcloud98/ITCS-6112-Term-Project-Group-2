@@ -1,11 +1,11 @@
 <h1>Mecklenburg County Parks & Recreation Mapping App</h1>
 This project is a web-based interactive mapping application built to visualize and explore publicly available parks and recreation data in Mecklenburg County, NC. The frontend is powered by Leaflet.js for dynamic map rendering and geospatial layer control. Users can:
+<ul>
+  <li>Filter data by feature-specific attributes</li>
+  <li>Search by keyword (e.g., trail or park name)</li>
+  <li>Input an address and perform radius-based spatial searches</li>
+</ul>
 
-<li>Filter data by feature-specific attributes</li>
-
-<li>Search by keyword (e.g., trail or park name)</li>
-
-<li>Input an address and perform radius-based spatial searches</li>
 
 The backend is built with Node.js and Express.js, and integrates OpenStreetMap (via Nominatim API) and ArcGIS REST services to provide geocoding and real-time data. This tool helps residents, outdoor enthusiasts, and tourists navigate the county’s trail, park, and greenway networks with ease.
 
